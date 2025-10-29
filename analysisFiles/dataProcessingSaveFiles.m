@@ -1,0 +1,447 @@
+
+subjAll = [{'OY'},{'LL'},{'CK'},{'LN'},{'EN'},{'MH'},{'HL'},{'DT'},{'TC'},{'SX'},{'MG'},{'HP'},{'AS'},{'NK'},{'JH'},{'SH'},{'ML'},{'NM'},{'ET'},{'HH'}];
+numSubj = length(subjAll);
+
+%Sensorimotor Task
+for ii = 1:numSubj
+    subj = subjAll{ii};
+    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
+    
+    if subj == 'OY'
+        load('OY_errClamp_exp_S2_2025-03-04_16-00_errresults.mat')
+    elseif subj == 'CK'
+        load('CK_errClamp_exp_S1_2025-03-06_16-25_errresults.mat')
+    elseif subj == 'MG'
+        load('MG_errClamp_exp_S1_2025-03-24_14-48_errresults.mat')
+    elseif subj == 'SX'
+        load('SX_errClamp_exp_S2_2025-04-10_15-00_errresults.mat')
+    elseif subj == 'ML'
+        load('ML_errClamp_exp_S2_2025-03-25_16-34_errresults.mat')
+    elseif subj == 'LL'
+        load('LL_errClamp_exp_S1_2025-03-27_12-50_errresults.mat')
+    elseif subj == 'LN'
+        load('LN_errClamp_exp_S1_2025-04-10_16-00_errresults.mat')
+    elseif subj == 'EN'
+        load('EN_errClamp_exp_S2_2025-04-15_17-07_errresults.mat')
+    elseif subj == 'NK'
+        load('NK_errClamp_exp_S2_2025-04-17_16-20_errresults.mat')
+    elseif subj == 'SH'
+        load('SH_errClamp_exp_S2_2025-04-25_16-30_errresults.mat')
+    elseif subj == 'HP'
+        load('HP_errClamp_exp_S2_2025-04-29_09-45_errresults.mat')
+    elseif subj == 'DT'
+        load('DT_errClamp_exp_S2_2025-04-29_13-59_errresults.mat')
+    elseif subj == 'MH'
+        load('MH_errClamp_exp_S1_2025-04-24_16-06_errresults.mat')
+    elseif subj == 'TC'
+        load('TC_errClamp_exp_S2_2025-05-02_16-30_errresults.mat')
+    elseif subj == 'ET'
+        load('ET_errClamp_exp_S1_2025-04-30_13-59_errresults.mat')
+    elseif subj == 'HH'
+        load('HH_errClamp_exp_S1_2025-05-06_16-00_errresults.mat')
+    elseif subj == 'HL'
+        load('HL_errClamp_exp_S1_2025-04-29_13-02_errresults.mat')
+    elseif subj == 'JH'
+        load('JH_errClamp_exp_S1_2025-05-07_15-01_errresults.mat')
+    elseif subj == 'AS'
+        load('AS_errClamp_exp_S1_2025-05-09_15-12_errresults.mat')
+    elseif subj == 'NM'
+        load('NM_errClamp_exp_S2_2025-05-13_17-19_errresults.mat')
+
+    end
+
+    %Basic Data
+    trial = errResultsMat.trialNum(61:300)';
+    endPt = errResultsMat.endPtAngle(61:300)'-90;
+    confRep = errResultsMat.confAngle(61:300);
+    errClamp = errResultsMat.errorClamp(61:300)-90;
+    arcStart = errResultsMat.arcStart(61:300)';
+
+    endPt = endPt-mean(endPt);
+    confRepCent = confRep-mean(confRep);
+
+    %Reaction Times
+    confTime = errResultsMat.confTime(61:300)';
+
+    %Points
+    pointsEarned = errResultsMat.pointsEarned(61:300);
+    pointsTest = sum(confRep/2 >= abs(endPt));
+
+    %Fourier Frequency
+    fourierClamp = fft(errClamp);
+    fourierReach = fft(endPt);
+    fourierConf = fft(confRep-mean(confRep));
+
+    %Fourier Phase
+    thetaClamp = rad2deg(angle(fourierClamp(13)));
+
+    thetaReach = rad2deg(angle(fourierReach(13)));
+    if thetaReach > 0 
+        thetaReach = thetaReach-360;
+    end
+
+    thetaConf = rad2deg(angle(fourierConf(25)));
+    if thetaConf > 0
+        thetaConf = thetaConf - 360;
+    end
+
+    phase = [thetaReach,thetaConf];
+    amp = [(rms(endPt)/.707),(rms(confRepCent)/.707)];
+
+    filename = sprintf('%s_sensorimotor.mat',subj);
+    save(fullfile(path,filename),'trial', 'endPt', 'confRep','confRepCent', 'errClamp',...
+        'confTime',...
+        'pointsEarned','pointsTest',...
+        'fourierClamp','fourierReach','fourierConf',...
+        'thetaClamp','thetaReach','thetaConf','phase','amp','arcStart');
+
+    %Motor Awareness
+
+    if subj == 'OY'
+        load('OY_errClamp_exp_S1_2025-03-04_14-26_errresults.mat')
+        errResultsMat1 = errResultsMat;
+        load('OY_errClamp_exp_S1_2025-03-04_15-17_errresults.mat')
+
+        trial = [errResultsMat1.trialNum(61:120)';errResultsMat.trialNum(121:300)'];
+        endPt = [errResultsMat1.endPtAngle(61:120)'-90;errResultsMat.endPtAngle(121:300)'-90];
+        confRep = [errResultsMat1.confAngle(61:120);errResultsMat.confAngle(121:300)];
+        errClamp = [errResultsMat1.errorClamp(61:120)-90;errResultsMat.errorClamp(121:300)-90];
+        report = -[errResultsMat1.reportAngle(61:120)';errResultsMat.reportAngle(121:300)'];
+        arcStart = [errResultsMat1.arcStart(61:120)';errResultsMat.arcStart(121:300)'];
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report); 
+        confTime = [errResultsMat1.confTime(61:120)';errResultsMat.confTime(121:300)'];
+        reportTime = [errResultsMat1.endPtReportTime(61:120)';errResultsMat.endPtReportTime(121:300)'];
+        pointsEarned = [errResultsMat1.pointsEarned(61:120);errResultsMat.pointsEarned(121:300)];
+        
+    elseif subj == 'CK'
+        load('CK_errClamp_exp_S2_2025-03-06_17-26_errresults.mat')
+
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'MG'
+        load('MG_errClamp_exp_S2_2025-03-27_15-00_errresults.mat')
+        errResultsMat1 = errResultsMat;
+        load('MG_errClamp_exp_S2_2025-03-27_16-58_errresults.mat')
+        trial = [errResultsMat1.trialNum(61:240)';errResultsMat.trialNum(241:300)'];
+        endPt = [errResultsMat1.endPtAngle(61:240)'-90;errResultsMat.endPtAngle(241:300)'-90];
+        confRep = [errResultsMat1.confAngle(61:240);errResultsMat.confAngle(241:300)];
+        errClamp = [errResultsMat1.errorClamp(61:240)-90;errResultsMat.errorClamp(241:300)-90];
+        report = -[errResultsMat1.reportAngle(61:240)';errResultsMat.reportAngle(241:300)'];
+        arcStart = [errResultsMat1.arcStart(61:240)';errResultsMat.arcStart(241:300)'];
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = [errResultsMat1.confTime(61:240)';errResultsMat.confTime(241:300)'];
+        reportTime = [errResultsMat1.endPtReportTime(61:240)';errResultsMat.endPtReportTime(241:300)'];
+        pointsEarned = [errResultsMat1.pointsEarned(61:240);errResultsMat.pointsEarned(241:300)];
+
+    elseif subj == 'SX'
+        load('SX_errClamp_exp_S1_2025-03-26_16-18_errresults.mat')
+        errResultsMat1 = errResultsMat;
+        load('SX_errClamp_exp_S1_2025-03-26_16-45_errresults.mat')
+        trial = [errResultsMat1.trialNum(61:120)';errResultsMat.trialNum(121:300)'];
+        endPt = [errResultsMat1.endPtAngle(61:120)'-90;errResultsMat.endPtAngle(121:300)'-90];
+        confRep = [errResultsMat1.confAngle(61:120);errResultsMat.confAngle(121:300)];
+        errClamp = [errResultsMat1.errorClamp(61:120)-90;errResultsMat.errorClamp(121:300)-90];
+        report = -[errResultsMat1.reportAngle(61:120)';errResultsMat.reportAngle(121:300)'];
+        arcStart = [errResultsMat1.arcStart(61:120)';errResultsMat.arcStart(121:300)'];
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = [errResultsMat1.confTime(61:120)';errResultsMat.confTime(121:300)'];
+        reportTime = [errResultsMat1.endPtReportTime(61:120)';errResultsMat.endPtReportTime(121:300)'];
+        pointsEarned = [errResultsMat1.pointsEarned(61:120);errResultsMat.pointsEarned(121:300)];
+        
+    elseif subj == 'ML'
+        load('ML_errClamp_exp_S1_2025-03-25_14-59_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'LL'
+        load('LL_errClamp_exp_S2_2025-03-28_14-45_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'LN'
+        load('LN_errClamp_exp_S2_2025-04-14_15-46_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'EN'
+        load('EN_errClamp_exp_S1_2025-04-15_15-57_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'NK'
+        load('NK_errClamp_exp_S1_2025-04-17_15-29_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'SH'
+        load('SH_errClamp_exp_S1_2025-04-25_15-16_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'HP'
+        load('HP_errClamp_exp_S1_2025-04-29_09-01_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    elseif subj == 'DT'
+        load('DT_errClamp_exp_S1_2025-04-28_13-01_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+         elseif subj == 'MH'
+        load('MH_errClamp_exp_S2_2025-04-30_15-55_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+         elseif subj == 'TC'
+        load('TC_errClamp_exp_S1_2025-05-02_15-05_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+        elseif subj == 'ET'
+        load('ET_errClamp_exp_S2_2025-05-07_13-59_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+        elseif subj == 'HH'
+        load('HH_errClamp_exp_S2_2025-05-07_16-00_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+        elseif subj == 'HL'
+        load('HL_errClamp_exp_S2_2025-05-09_12-26_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+        elseif subj == 'JH'
+        load('JH_errClamp_exp_S2_2025-05-12_13-58_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+        elseif subj == 'AS'
+        load('AS_errClamp_exp_S2_2025-05-12_15-03_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+        elseif subj == 'NM'
+        load('NM_errClamp_exp_S1_2025-05-13_16-14_errresults.mat')
+        trial = errResultsMat.trialNum(61:300)';
+        endPt = errResultsMat.endPtAngle(61:300)'-90;
+        confRep = errResultsMat.confAngle(61:300);
+        errClamp = errResultsMat.errorClamp(61:300)-90;
+        report = -errResultsMat.reportAngle(61:300)';
+        arcStart = errResultsMat.arcStart(61:300)';
+        endPt = endPt - mean(endPt);
+        confRepCent = confRep-mean(confRep);
+        report = report-mean(report);
+        confTime = errResultsMat.confTime(61:300)';
+        reportTime = errResultsMat.endPtReportTime(61:300)';
+        pointsEarned = errResultsMat.pointsEarned(61:300);
+
+    end
+
+    pointsTest = sum(confRep/2 >= abs(endPt));
+
+    %Fourier Frequency
+    fourierClamp = fft(errClamp);
+    fourierReach = fft(endPt);
+    fourierReport = fft(report-mean(report));
+    fourierConf = fft(confRep-mean(confRep));
+
+    %Fourier Phase
+    thetaClamp = rad2deg(angle(fourierClamp(13)));
+    
+    thetaReach = rad2deg(angle(fourierReach(13)));
+    if thetaReach > 0 
+        thetaReach = thetaReach-360;
+    end
+    
+    thetaReport = rad2deg(angle(fourierReport(13)));
+    if thetaReport > 0 
+        thetaReport = thetaReport-360;
+    end
+    
+    thetaConf = rad2deg(angle(fourierConf(25)));
+    if thetaConf > 0
+        thetaConf = thetaConf - 360;
+    end
+
+    phase = [thetaReach,thetaReport,thetaConf];
+    phase(phase<0) = 360+phase(phase<0);
+    amp = [(rms(endPt)/.707),(rms(report)/.707),(rms(confRepCent)/.707)];
+
+    filename = sprintf('%s_motoraware.mat',subj);
+    save(fullfile(path,filename),'trial', 'endPt', 'confRep','confRepCent','report', 'errClamp',...
+        'confTime','reportTime',...
+        'pointsEarned','pointsTest',...
+        'fourierClamp','fourierReach','fourierReport','fourierConf',...
+        'thetaClamp','thetaReach','thetaReport','thetaConf','phase','amp','arcStart');
+
+end
