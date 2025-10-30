@@ -5,6 +5,10 @@ numSubj = length(subjAll);
 count1 = 0;
 count2 = 0;
 
+reachColor = hex2rgb('#E0B643'); %sand
+confColor = hex2rgb('#3DE0AE'); %teal
+reportColor = hex2rgb('#CA49E0'); %pink
+
 
 for ii = [2 3 16 19]
     subj = subjAll{ii};
@@ -46,18 +50,18 @@ for ii = [2 3 16 19]
             subplot(2,2,count1)
             hold on;
             yyaxis left
-            plot(1:20,errClamp(1:20),'LineWidth',4)
-            patch([1:20, fliplr(1:20)], [mReach'-sReach, fliplr(mReach'+sReach)],[0.4940 0.1840 0.5560], 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
-            plot(1:20,mReach,'--','Color',[0.4940 0.1840 0.5560],'LineWidth',2,'HandleVisibility','off')
-            plot(x,y2,'-','Color',[0.4940 0.1840 0.5560],'LineWidth',4)
+            plot(1:20,errClamp(1:20),'k','LineWidth',2)
+            patch([1:20, fliplr(1:20)], [mReach'-sReach, fliplr(mReach'+sReach)],reachColor, 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
+            plot(1:20,mReach,'--','Color',reachColor,'LineWidth',2,'HandleVisibility','off')
+            plot(x,y2,'-','Color',reachColor,'LineWidth',4)
             ylabel('direction, deg')
             ylim([-20 20])
             yline(0,'HandleVisibility','off');
 
             yyaxis right
-            patch([1:20, fliplr(1:20)], [mConf'-sConf, fliplr(mConf'+sConf)],[0.8500 0.3250 0.0980], 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
-            plot(1:20,mConf,'--','Color',[0.8500 0.3250 0.0980],'LineWidth',2,'HandleVisibility','off')
-            plot(x,y3,'-','Color',[0.8500 0.3250 0.0980],'LineWidth',4)
+            patch([1:20, fliplr(1:20)], [mConf'-sConf, fliplr(mConf'+sConf)],confColor, 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
+            plot(1:20,mConf,'--','Color',confColor,'LineWidth',2,'HandleVisibility','off')
+            plot(x,y3,'-','Color',confColor,'LineWidth',4)
             ylabel('confidence width, deg')
             ylim([mConf1-20 mConf1+20])
             yticks([0 5 10 15 20])
@@ -72,6 +76,9 @@ for ii = [2 3 16 19]
             title(['Participant ', num2str(ii)])
             box off
             set(gca,'TickDir','out','FontSize',18)
+            ax = gca;
+            ax.YAxis(1).Color = 'k';
+            ax.YAxis(2).Color = confColor;
             set(gcf,'Color','white','position',[0,0,1200,1600])
 
             %MOTOR AWARENESS
@@ -112,21 +119,21 @@ for ii = [2 3 16 19]
             subplot(2,2,count2)
             hold on;
             yyaxis left
-            plot(1:20,errClamp(1:20),'LineWidth',4)
-            patch([1:20, fliplr(1:20)], [mReach'-sReach, fliplr(mReach'+sReach)],[0.4940 0.1840 0.5560], 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
-            plot(1:20,mReach,'--','Color',[0.4940 0.1840 0.5560],'LineWidth',2,'HandleVisibility','off')
-            patch([1:20, fliplr(1:20)], [mReport'-sReport, fliplr(mReport'+sReport)],[0.4660 0.6740 0.1880], 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
-            plot(1:20,mReport,'--','Color',[0.4660 0.6740 0.1880],'LineWidth',2,'HandleVisibility','off')
-            plot(x,y2,'-','Color',[0.4940 0.1840 0.5560],'LineWidth',4)
-            plot(x,y3,'-','Color',[0.4660 0.6740 0.1880],'LineWidth',4)
+            plot(1:20,errClamp(1:20),'k','LineWidth',2)
+            patch([1:20, fliplr(1:20)], [mReach'-sReach, fliplr(mReach'+sReach)],reachColor, 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
+            plot(1:20,mReach,'--','Color',reachColor,'LineWidth',2,'HandleVisibility','off')
+            patch([1:20, fliplr(1:20)], [mReport'-sReport, fliplr(mReport'+sReport)],reportColor, 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
+            plot(1:20,mReport,'--','Color',reportColor,'LineWidth',2,'HandleVisibility','off')
+            plot(x,y2,'-','Color',reachColor,'LineWidth',4)
+            plot(x,y3,'-','Color',reportColor,'LineWidth',4)
             ylabel('direction, deg')
             ylim([-20 20])
             yline(0,'HandleVisibility','off');
 
             yyaxis right
-            patch([1:20, fliplr(1:20)], [mConf'-sConf, fliplr(mConf'+sConf)],[0.8500 0.3250 0.0980], 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
-            plot(1:20,mConf,'--','Color',[0.8500 0.3250 0.0980],'LineWidth',2,'HandleVisibility','off')
-            plot(x,y4,'-','Color',[0.8500 0.3250 0.0980],'LineWidth',4)
+            patch([1:20, fliplr(1:20)], [mConf'-sConf, fliplr(mConf'+sConf)],confColor, 'FaceAlpha',0.5,'HandleVisibility','off',EdgeColor='none');
+            plot(1:20,mConf,'--','Color',confColor,'LineWidth',2,'HandleVisibility','off')
+            plot(x,y4,'-','Color',confColor,'LineWidth',4)
             ylabel('confidence width, deg')
             ylim([mConf1-20 mConf1+20])
             yticks([0 5 10 15 20])
@@ -141,6 +148,9 @@ for ii = [2 3 16 19]
             title(['Participant ', num2str(ii)])
             box off
             set(gca,'TickDir','out','FontSize',18)
+            ax = gca;
+            ax.YAxis(1).Color = 'k';
+            ax.YAxis(2).Color = confColor;
             set(gcf,'Color','white','position',[0,0,1200,1600])
 
 

@@ -18,26 +18,54 @@ for ii = 1:numSubj
 
             reachAmpSM(ii) = rms(endPt)/.707;
 
+            % %reach vs conf
+            % figure(1)
+            % subplot(2,3,1); hold on
+            % if signifFreq(2) == 1
+            %     scatter(-thetaReach-90,-thetaConf-90,80,'filled')
+            %     text(-thetaReach-90,-thetaConf-90,['  ',num2str(ii)])
+            % else
+            %     scatter(-thetaReach-90,0,80,'filled')
+            %     text(-thetaReach-90,0,['  ',num2str(ii)])
+            % end
+            % xlabel('reach phase')
+            % ylabel('conf phase')
+            % title('sensorimotor')
+            % axis([180 250 0 150])
+            % grid on
+            % box off
+            % set(gca,'TickDir','out','FontSize',18)
+            % set(gcf,'Color','white')
 
             figure(1)
             subplot(1,3,1); hold on
             if signifFreq(2) == 1
                 scatter(lagConf,sigPmarg,80,'k','filled')
                 text(lagConf,sigPmarg,['  ',num2str(ii)],'FontSize',12)
-            else
-                scatter(lagConf,sigPmarg,80,'k')
-                text(lagConf,sigPmarg,['  ',num2str(ii)],'FontSize',12)
             end
             xlabel('confidence lag, trial')
             ylabel('proprioceptive uncertainty, deg')
             title('sensorimotor')
             axis([0 20 0 20])
-            confAllSM(ii) = lagConf;
+            confAllSM(ii) = -thetaConf-90;
             sigFreqSM(ii) = signifFreq(2);
-            reachesAllSM(ii) = lagReach;
+            reachesAllSM(ii) = -thetaReach-90;
             grid on
             box off
             set(gca,'TickDir','out','FontSize',18)
+
+            % figure(3); hold on
+            % if signifFreq(2) == 1
+            % scatter3(-thetaReach-90,-thetaConf-90,sigPmarg)
+            % else
+            %     scatter3(-thetaReach-90,0,sigPmarg)
+            % end
+            % %text3(-thetaReach-90,-thetaConf-90,-thetaReport-90,['  ',num2str(ii)])
+            % xlabel('reach')
+            % ylabel('conf')
+            % zlabel('sigma p')
+            % title('sensorimotor')
+            % grid on
 
 
         elseif ss == 2
@@ -45,6 +73,53 @@ for ii = 1:numSubj
             load(sprintf('%s/%s_sigmaFit.mat',path,subj));
 
             reachAmpMA(ii) = rms(endPt)/.707;
+
+            %reach vs conf
+            % figure(1)
+            % subplot(2,3,6); hold on
+            % if signifFreq(1) == 1
+            %     scatter(-thetaReach-90,-thetaConf-90,80,'filled')
+            %     text(-thetaReach-90,-thetaConf-90,['  ',num2str(ii)])
+            % else
+            %     scatter(-thetaReach-90,0,80,'filled')
+            %     text(-thetaReach-90,0,['  ',num2str(ii)])
+            % end
+            % 
+            % xlabel('reach phase')
+            % ylabel('conf phase')
+            % title('motor aware')
+            % axis([180 250 0 150])
+            % grid on
+            % set(gca,'TickDir','out','FontSize',18)
+
+            %report vs conf
+            % figure(1)
+            % subplot(2,3,4); hold on
+            % if signifFreq(1) == 1
+            %     scatter(-thetaReport-90,-thetaConf-90,80,'filled')
+            %     text(-thetaReport-90,-thetaConf-90,['  ',num2str(ii)])
+            % else
+            %     scatter(-thetaReport-90,0,80,'filled')
+            %     text(-thetaReport-90,0,['  ',num2str(ii)])
+            % end
+            % xlabel('report phase')
+            % ylabel('conf phase')
+            % title('motor aware')
+            % %axis([0 200 0 150])
+            % grid on
+            % set(gca,'TickDir','out','FontSize',18)
+
+            %report vs reach
+            % figure(1)
+            % subplot(2,3,5); hold on
+            % scatter(-thetaReport-90,-thetaReach-90,80,'filled')
+            % text(-thetaReport-90,-thetaReach-90,['  ',num2str(ii)])
+            % xlabel('report phase')
+            % ylabel('reach phase')
+            % title('motor aware')
+            % %axis([0 200 180 250])
+            % grid on
+            % set(gca,'TickDir','out','FontSize',18)
              
 
             figure(1)
@@ -53,7 +128,7 @@ for ii = 1:numSubj
                 scatter(lagReport,sigPmarg,80,'k','filled')
                 text(lagReport,sigPmarg,['  ',num2str(ii)],'FontSize',12)
             else
-                scatter(lagReport,sigPmarg,80,'k')
+                scatter(lagReport,sigPmarg,80,'k','filled')
                 text(lagReport,sigPmarg,['  ',num2str(ii)],'FontSize',12)
             end
             xlabel('report lag, trial')
@@ -87,29 +162,41 @@ for ii = 1:numSubj
             reachesAllMA(ii) = lagReach;
             reportAllMA(ii) = lagReport;
 
+            
+
+            % figure(2); hold on
+            % scatter3(-thetaReach-90,sigPmarg,-thetaReport-90)
+            % %text3(-thetaReach-90,-thetaConf-90,-thetaReport-90,['  ',num2str(ii)])
+            % xlabel('reach')
+            % ylabel('sigma p')
+            % zlabel('report')
+            % title('motor aware')
+            % grid on
+
+
 
         end
     end
 end
 
-% y = temp';
-% x = confAllMA';
-% 
-% X = [ones(length(x),1) x];
-% b = X\y;
-% yCalc = X*b;
-% rSqr = 1 - sum((y - yCalc).^2)/sum((y - mean(y)).^2);
-% [~,~,~,~,stats] = regress(y,X);
-% stats(3)
-% 
-% figure; hold on
-% scatter(x,y)
-% plot(x,yCalc,'r','LineWidth',2)
-% if stats(3) <.05
-%     title(['sensorimotor, R sqr =' num2str(rSqr),'*'])
-% else
-%     title(['sensorimotor, R sqr =' num2str(rSqr)])
-% end
+y = temp';
+x = confAllMA';
+
+X = [ones(length(x),1) x];
+b = X\y;
+yCalc = X*b;
+rSqr = 1 - sum((y - yCalc).^2)/sum((y - mean(y)).^2);
+[~,~,~,~,stats] = regress(y,X);
+stats(3)
+
+figure; hold on
+scatter(x,y)
+plot(x,yCalc,'r','LineWidth',2)
+if stats(3) <.05
+    title(['sensorimotor, R sqr =' num2str(rSqr),'*'])
+else
+    title(['sensorimotor, R sqr =' num2str(rSqr)])
+end
 
 %Sensory Motor
 y = sigPmarg1(sigFreqSM)';

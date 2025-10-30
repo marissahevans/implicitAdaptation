@@ -3,6 +3,10 @@
 subjAll = [{'OY'},{'LL'},{'CK'},{'LN'},{'EN'},{'MH'},{'HL'},{'DT'},{'TC'},{'SX'},{'MG'},{'HP'},{'AS'},{'NK'},{'JH'},{'SH'},{'ML'},{'NM'},{'ET'},{'HH'}];
 numSubj = length(subjAll);
 
+reachColor = hex2rgb('#CA49E0'); %pink
+confColor = hex2rgb('#3DE0AE'); %teal
+reportColor = hex2rgb('#E0B643'); %sand
+
 for ii = 1:numSubj
     subj = subjAll{ii};
     path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
@@ -28,9 +32,9 @@ for ii = 1:numSubj
             sgtitle('Sensorimotor')
             subplot(1,numSubj,ii)
             hold on
-            plot(x,y1)
-            plot(x,y2)
-            plot(x,y3,'Color',[0.4940 0.1840 0.5560])
+            plot(x,y1, 'k')
+            plot(x,y2,'Color',reachColor)
+            plot(x,y3,'Color',confColor)
             xline(minConf,'--')
             yline(0);
             xline(50);
@@ -63,10 +67,10 @@ for ii = 1:numSubj
             sgtitle('Motor Awareness')
             subplot(1,numSubj,ii)
             hold on
-            plot(x,y1)
-            plot(x,y2)
-            plot(x,y3,'Color',[0.4660 0.6740 0.1880])
-            plot(x,y4,'Color',[0.4940 0.1840 0.5560])
+            plot(x,y1,'k')
+            plot(x,y2,'Color',reachColor)
+            plot(x,y3,'Color',reportColor)
+            plot(x,y4,'Color',confColor)
             xline(minConf,'--')
             yline(0);
             xline(50);

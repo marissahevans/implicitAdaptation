@@ -5,6 +5,10 @@ numSubj = length(subjAll);
 count1 = 1;
 count2 = 1;
 
+reachColor = hex2rgb('#CA49E0'); %pink
+confColor = hex2rgb('#3DE0AE'); %teal
+reportColor = hex2rgb('#E0B643'); %sand
+
 for ii = [2 3 16 19]%1:numSubj
     
 
@@ -21,13 +25,13 @@ for ii = [2 3 16 19]%1:numSubj
             subplot(4,1,count1)
             hold on;
             yyaxis left
-            plot(trial,errClamp,'LineWidth',2)
-            plot(trial,endPt,'-','Color',[0.4940 0.1840 0.5560],'LineWidth',2)
+            plot(trial,errClamp,'k','LineWidth',2)
+            plot(trial,endPt,'-','Color',reachColor,'LineWidth',2)
             ylabel('direction')
             ylim([-15 15])
 
             yyaxis right
-            plot(trial,confRep,'Color',[0.8500 0.3250 0.0980],'LineWidth',2)
+            plot(trial,confRep,'Color',confColor,'LineWidth',2)
             ylim([mConf1-20 mConf1+20])
             yticks([0 5 10 15 20])
 
@@ -38,6 +42,9 @@ for ii = [2 3 16 19]%1:numSubj
             title(['Participant ', num2str(ii)])
             box off
             set(gca,'TickDir','out','FontSize',18)
+            ax = gca;
+            ax.YAxis(1).Color = 'k';
+            ax.YAxis(2).Color = confColor;
             set(gcf,'Color','white','position',[0,0,1200,1000])
 
             count1 = count1 + 1;
@@ -52,14 +59,14 @@ for ii = [2 3 16 19]%1:numSubj
             subplot(4,1,count2)
             hold on;
             yyaxis left
-            plot(trial,errClamp,'LineWidth',2)
-            plot(trial,endPt,'-','Color',[0.4940 0.1840 0.5560],'LineWidth',2)
-            plot(trial,report,'-','Color',[0.4660 0.6740 0.1880],'LineWidth',2)
+            plot(trial,errClamp,'k','LineWidth',2)
+            plot(trial,endPt,'-','Color',reachColor,'LineWidth',2)
+            plot(trial,report,'-','Color',reportColor,'LineWidth',2)
             ylabel('direction')
             ylim([-15 15])
 
             yyaxis right
-            plot(trial,confRep,'Color',[0.8500 0.3250 0.0980],'LineWidth',2)
+            plot(trial,confRep,'Color',confColor,'LineWidth',2)
             ylim([mConf1-20 mConf1+20])
             yticks([0 5 10 15 20])
 
@@ -70,6 +77,9 @@ for ii = [2 3 16 19]%1:numSubj
             title(['Participant ', num2str(ii)])
             box off
             set(gca,'TickDir','out','FontSize',18)
+            ax = gca;
+            ax.YAxis(1).Color = 'k';
+            ax.YAxis(2).Color = confColor;
             set(gcf,'Color','white','position',[0,0,1200,1000])
 
             count2 = count2 + 1;

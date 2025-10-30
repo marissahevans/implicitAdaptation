@@ -6,7 +6,7 @@ numSubj = length(subjAll);
 
 for ii = 1:numSubj
     subj = subjAll{ii};
-    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
+    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/publicGitHubRepo/implicitAdaptation/data/%s',subj);
 
     load(sprintf('%s/%s_motoraware.mat',path,subj));
 
@@ -51,9 +51,10 @@ for ii = 1:numSubj
 
 
     signifFreq = permutePval(:,13)<.01;
+    reportPval = permutePval(:,13);
 
     filename = sprintf('%s_reportPermute.mat',subj);
-    save(fullfile(path,filename),'permutePval','signifFreq');
+    save(fullfile(path,filename),'permutePval','signifFreq','reportPval');
 
 
 end

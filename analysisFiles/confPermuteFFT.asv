@@ -6,7 +6,7 @@ numSubj = length(subjAll);
 
 for ii = 1:numSubj
     subj = subjAll{ii};
-    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/publicGitHubRepo/implicitAdaptation/data/%s',subj);
+    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
     for ss = 1:2
 
         if ss == 1
@@ -68,7 +68,7 @@ for ii = 1:numSubj
     confPval = permutePval(:,25);
 
     filename = sprintf('%s_confPermute.mat',subj);
-    save(fullfile(path,filename),'permutePval','signifFreq','confPval');
+    save(fullfile(path,filename),'permutePval','signifFreq','sigPval');
 
     
 end
