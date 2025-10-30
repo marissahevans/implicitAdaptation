@@ -253,8 +253,8 @@ end
 
 figure; hold on
 %plot(0:20,0:20,'k--')
-scatter(sigMmarg1,sigPmarg1,50,'filled')
-text(sigMmarg1,sigPmarg1,[{' 1'},{' 2'},{' 3'},{' 4'},{' 5'},{' 6'},{' 7'},{' 8'},{' 9'},{' 10'},{' 11'},{' 12'},{' 13'},{' 14'},{' 15'},{' 16'},{' 17'},{' 18'},{' 19'},{' 20'}],'FontSize',12)
+scatter(sigMmarg1,sigPmarg1,100,'filled')
+text(sigMmarg1,sigPmarg1,[{' 1'},{' 2'},{' 3'},{' 4'},{' 5'},{' 6'},{' 7'},{' 8'},{' 9'},{' 10'},{' 11'},{' 12'},{' 13'},{' 14'},{' 15'},{' 16'},{' 17'},{' 18'},{' 19'},{' 20'}],'FontSize',18)
 xlim([0 12])
 ylim([0 20])
 xlabel('Motor Error, deg')
