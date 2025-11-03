@@ -21,7 +21,7 @@ for ii = [2 3 16 19]
     [~,~,~,~,stats] = regress(y,X);
     sig2(ii) = stats(3);
 
-    subplot(2,2,count); hold on
+    subplot(1,4,count); hold on
     plot(1:20,1:20,'k--')
     scatter(x,y,'k.')
     plot_gaussian_ellipsoid(mean([x,y]),cov([x,y]))
@@ -45,7 +45,7 @@ for ii = [2 3 16 19]
     grid on
     box off
     set(gca,'TickDir','out','FontSize',18)
-    set(gcf,'Color','white','position',[0,0,1200,1200])
+    set(gcf,'Color','white','position',[0,0,1200,400])
 
     %SENSORIMOTOR
     load(sprintf('%s/%s_sensorimotor.mat',path,subj));
@@ -65,7 +65,7 @@ for ii = [2 3 16 19]
     [~,~,~,~,stats] = regress(y,X);
     sig1(ii) = stats(3);
 
-    subplot(2,2,count); hold on
+    subplot(1,4,count); hold on
     plot(0:20,0:20,'k--')
     scatter(x,y,'k.')
     plot_gaussian_ellipsoid(mean([x,y]),cov([x,y]))
@@ -88,7 +88,7 @@ for ii = [2 3 16 19]
     grid on
     box off
     set(gca,'TickDir','out','FontSize',18)
-    set(gcf,'Color','white','position',[0,0,1200,1200])
+    set(gcf,'Color','white','position',[0,0,1200,400])
 
 
     % if ii == 7

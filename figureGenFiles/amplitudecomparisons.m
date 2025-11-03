@@ -5,7 +5,7 @@ numSubj = length(subjAll);
 
 for ii = 1:numSubj
     subj = subjAll{ii};
-    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
+    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/publicGitHubRepo/implicitAdaptation/data/%s',subj);
     load(sprintf('%s/%s_confPermute.mat',path,subj));
     for ss = 1:2
 
@@ -20,7 +20,7 @@ for ii = 1:numSubj
             subplot(1,2,2); hold on
             scatter(reachAmpSM(ii),sigPmarg,80,'k','filled')
             text(reachAmpSM(ii),sigPmarg,['  ',num2str(ii)],'FontSize',12)
-            xlabel('reach amplitude, deg')
+            xlabel('reach adaptation amplitude, deg')
             %ylabel('proprioceptive uncertainty, deg')
             title('sensorimotor')
             axis([0 22 0 20])
@@ -39,7 +39,7 @@ for ii = 1:numSubj
             subplot(1,2,1); hold on
             scatter(reachAmpMA(ii),sigPmarg,80,'k','filled')
             text(reachAmpMA(ii),sigPmarg,['  ',num2str(ii)],'FontSize',12)
-            xlabel('reach amplitude, deg')
+            xlabel('reach adaptation amplitude, deg')
             ylabel('proprioceptive uncertainty, deg')
             title('sensorimotor')
             axis([0 22 0 20])
@@ -105,7 +105,7 @@ rSqr = 1 - sum((y - yCalc).^2)/sum((y - mean(y)).^2);
 [~,~,~,~,stats] = regress(y,X);
 stats(3)
 
-figure(1)
+figure(2)
 hold on
 plot(x,yCalc,'r','LineWidth',2)
 scatter(x,y)

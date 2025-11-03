@@ -126,9 +126,9 @@ figure(1)
 subplot(1,3,1)
 plot(x,yCalc,'r','LineWidth',2)
 if stats(3) <.05
-    title(['sensorimotor, R sqr =' num2str(rSqr),'*'])
+    title(['sensorimotor, R sqr =' num2str(rSqr,'%05.2f'),'*'])
 else
-    title(['sensorimotor, R sqr =' num2str(rSqr)])
+    title(['sensorimotor, R sqr =' num2str(rSqr,'%05.2f')])
 end
 
 %Motor Aware
@@ -146,9 +146,9 @@ figure(1)
 subplot(1,3,3)
 plot(x,yCalc,'r','LineWidth',2)
 if stats(3) <.05
-    title(['motor aware, R sqr =' num2str(rSqr),'*'])
+    title(['motor aware, R sqr =' num2str(rSqr,'%05.2f'),'*'])
 else
-    title(['motor aware, R sqr =' num2str(rSqr)])
+    title(['motor aware, R sqr =' num2str(rSqr,'%05.2f')])
 end
 
 y = sigPmarg1(reportWin)';
@@ -165,9 +165,9 @@ figure(1)
 subplot(1,3,2); hold on
 plot(x,yCalc,'r','LineWidth',2)
 if stats(3) <.05
-    title(['motor aware, R sqr =' num2str(rSqr),'*'])
+    title(['motor aware, R sqr =' num2str(rSqr,'%05.2f'),'*'])
 else
-    title(['motor aware, R sqr =' num2str(rSqr)])
+    title(['motor aware, R sqr =' num2str(rSqr,'%05.2f')])
 end
 
 
