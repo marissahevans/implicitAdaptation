@@ -4,7 +4,7 @@ numSubj = length(subjAll);
 for ii = 1:numSubj
     subj = subjAll{ii};
     path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
-    for ss = 2
+    for ss = 1:2
 
         if ss == 1
             load(sprintf('%s/%s_sensorimotor.mat',path,subj));
@@ -20,8 +20,8 @@ for ii = 1:numSubj
 
             % figure(2); hold on 
             % scatter(ii,sum(pointsEarned),100,'k')
-            % MApts(ii) = sum(pointsEarned);
-            % MAsuccess(ii) = sum(pointsEarned~=0);
+            MApts(ii) = sum(pointsEarned);
+            MAsuccess(ii) = sum(pointsEarned~=0);
 
             % figure(3); hold on
             % if any([1:9,12,13] == ii)
@@ -47,15 +47,18 @@ end
 % yline(mean(MApts([1:9 12 13])))
 % yline(mean(MApts([10 11 14:20])))
 
-ttest(MApts([1:9 12 13]),mean(MApts([10 11 14:20])))
-ttest(MApts([10 11 14:20]),mean(MApts([1:9 12 13])))
+ttest(MApts([1:9 12 13]),mean(MApts([10 11 14:20])));
+ttest(MApts([10 11 14:20]),mean(MApts([1:9 12 13])));
 
-ttest(SMpts(1:11),mean(SMpts(12:20)))
-ttest(SMpts(12:20),mean(SMpts(1:11)))
+ttest(SMpts(1:11),mean(SMpts(12:20)));
+ttest(SMpts(12:20),mean(SMpts(1:11)));
 
-[h, p, ci, stats] = ttest2(SMpts(1:11),SMpts(12:20))
-[h, p, ci, stats] =ttest2(MApts([1:9 12 13]),MApts([10 11 14:20]))
+[h, p, ci, stats] = ttest(SMpts,MApts)
+std(SMpts - MApts)
 
-[h, p, ci, stats] =ttest2(repErrM([1:9 12 13]),repErrM([10 11 14:20]))
+[h, p, ci, stats] = ttest2(SMpts(1:11),SMpts(12:20));
+[h, p, ci, stats] =ttest2(MApts([1:9 12 13]),MApts([10 11 14:20]));
 
-[h, p, ci, stats] =ttest2(sigPmarg1([1:9, 12,13]),sigPmarg1([10 11,14:20]))
+[h, p, ci, stats] =ttest2(repErrM([1:9 12 13]),repErrM([10 11 14:20]));
+
+%[h, p, ci, stats] =ttest2(sigPmarg1([1:9, 12,13]),sigPmarg1([10 11,14:20]));

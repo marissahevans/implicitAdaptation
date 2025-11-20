@@ -17,12 +17,12 @@ for ii = 1:numSubj
             sigPmarg1(ii) = sigPmarg;
 
             figure(1)
-            subplot(1,2,2); hold on
+            subplot(1,2,1); hold on
             scatter(reachAmpSM(ii),sigPmarg,80,'k','filled')
             text(reachAmpSM(ii),sigPmarg,['  ',num2str(ii)],'FontSize',12)
-            xlabel('reach adaptation amplitude, deg')
+            xlabel('reach adaptation sine amplitude, deg')
             %ylabel('proprioceptive uncertainty, deg')
-            title('sensorimotor')
+            %title('sensorimotor')
             axis([0 22 0 20])
             grid on
             box off
@@ -36,12 +36,12 @@ for ii = 1:numSubj
             reachAmpMA(ii) = rms(endPt)/.707;
 
             figure(1)
-            subplot(1,2,1); hold on
+            subplot(1,2,2); hold on
             scatter(reachAmpMA(ii),sigPmarg,80,'k','filled')
             text(reachAmpMA(ii),sigPmarg,['  ',num2str(ii)],'FontSize',12)
-            xlabel('reach adaptation amplitude, deg')
+            xlabel('reach adaptation sine amplitude, deg')
             ylabel('proprioceptive uncertainty, deg')
-            title('sensorimotor')
+            %title('sensorimotor')
             axis([0 22 0 20])
             grid on
             box off
@@ -67,12 +67,12 @@ rSqr = 1 - sum((y - yCalc).^2)/sum((y - mean(y)).^2);
 stats(3)
 
 figure(1)
-subplot(1,2,2); hold on
+subplot(1,2,1); hold on
 plot(x,yCalc,'r','LineWidth',2)
 if stats(3) <.05
-    title(['motor aware, R sqr =' num2str(rSqr),'*'])
+    title(['sensorimotor, R^2 =' num2str(rSqr,'%05.2f'),'*'])
 else
-    title(['motor aware, R sqr =' num2str(rSqr)])
+    title(['sensorimotor, R^2 =' num2str(rSqr,'%05.2f')])
 end
 
 
@@ -87,12 +87,12 @@ rSqr = 1 - sum((y - yCalc).^2)/sum((y - mean(y)).^2);
 stats(3)
 
 figure(1)
-subplot(1,2,1); hold on
+subplot(1,2,2); hold on
 plot(x,yCalc,'r','LineWidth',2)
 if stats(3) <.05
-    title(['sensorimotor, R sqr =' num2str(rSqr),'*'])
+    title(['motor-awareness, R^2 =' num2str(rSqr,'%05.2f'),'*'])
 else
-    title(['sensorimotor, R sqr =' num2str(rSqr)])
+    title(['motor-awareness, R^2 =' num2str(rSqr,'%05.2f')])
 end
 
 y = reachAmpSM';
@@ -110,9 +110,9 @@ hold on
 plot(x,yCalc,'r','LineWidth',2)
 scatter(x,y)
 if stats(3) <.05
-    title(['sensorimotor, R sqr =' num2str(rSqr),'*'])
+    title(['sensorimotor, R^2 =' num2str(rSqr,'%05.2f'),'*'])
 else
-    title(['sensorimotor, R sqr =' num2str(rSqr)])
+    title(['sensorimotor, R^2 =' num2str(rSqr,'%05.2f')])
 end
 
 %%

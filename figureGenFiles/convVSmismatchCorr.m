@@ -10,7 +10,7 @@ for ii = [2 3 16 19]
     clampRound = floor(abs(errClamp));
     count = count+1;
     figure(1)
-    sgtitle('Motor Awareness')
+    %sgtitle('Motor Awareness')
     x = [abs(endPt-errClamp)];
     y = confRep;
 
@@ -38,9 +38,9 @@ for ii = [2 3 16 19]
     xlim([0 20])
     ylim([0 20])
     if stats(3) <.05
-        title(['P',num2str(ii),' R sqr =' num2str(rSqr2(ii),'%05.2f'),'*'])
+        title(['P',num2str(ii),' \it{r} = ' num2str(rSqr2(ii),'%05.2f'),'*'])
     else
-        title(['P',num2str(ii),' R sqr =' num2str(rSqr2(ii),'%05.2f')])
+        title(['P',num2str(ii),' \it{r} = ' num2str(rSqr2(ii),'%05.2f')])
     end
     grid on
     box off
@@ -52,7 +52,7 @@ for ii = [2 3 16 19]
     clampRound = floor(abs(errClamp));
 
     figure(2)
-    sgtitle('Sensorimotor')
+    %sgtitle('Sensorimotor')
 
     %Confidence vs Error abs. value
     y = confRep;
@@ -81,9 +81,9 @@ for ii = [2 3 16 19]
     xlim([0 20])
     ylim([0 20])
     if stats(3) <.05
-        title(['P',num2str(ii),' R sqr =' num2str(rSqr1(ii),'%05.2f'),'*'])
+        title(['P',num2str(ii),' \it{r} = ' num2str(rSqr1(ii),'%05.2f'),'*'])
     else
-        title(['P',num2str(ii),' R sqr =' num2str(rSqr1(ii),'%05.2f')])
+        title(['P',num2str(ii),' \it{r} = ' num2str(rSqr1(ii),'%05.2f')])
     end
     grid on
     box off
@@ -117,17 +117,17 @@ for ii = [2 3 16 19]
 end
 
 %%
-figure(3)
-subplot(2,1,1)
-set(gcf,'Color','white')
-heatmap(1:20,{'mismatch'},sig1,'CellLabelColor','none','FontSize',18)
-colormap(turbo)
-xlabel('participant')
-set(gcf,'Color','white','position',[0,0,1200,105])
-
-subplot(2,1,2)
-set(gcf,'Color','white')
-heatmap(1:20,{'mismatch'},sig2,'CellLabelColor','none','FontSize',18)
-colormap(turbo)
-xlabel('participant')
-set(gcf,'Color','white','position',[0,0,1200,105])
+% figure(3)
+% subplot(2,1,1)
+% set(gcf,'Color','white')
+% heatmap(1:20,{'mismatch'},sig1,'CellLabelColor','none','FontSize',18)
+% colormap(turbo)
+% xlabel('participant')
+% set(gcf,'Color','white','position',[0,0,1200,105])
+% 
+% subplot(2,1,2)
+% set(gcf,'Color','white')
+% heatmap(1:20,{'mismatch'},sig2,'CellLabelColor','none','FontSize',18)
+% colormap(turbo)
+% xlabel('participant')
+% set(gcf,'Color','white','position',[0,0,1200,105])

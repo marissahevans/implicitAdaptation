@@ -5,9 +5,9 @@ numSubj = length(subjAll);
 count1 = 0;
 count2 = 0;
 
-reachColor = hex2rgb('#E0B643'); %sand
-confColor = hex2rgb('#3DE0AE'); %teal
-reportColor = hex2rgb('#CA49E0'); %pink
+reachColor = hex2rgb('#3DE0AE'); %teal
+confColor = hex2rgb('#CA49E0'); %pink
+reportColor = hex2rgb('#E0B643'); %sand
 
 
 for ii = [2 3 16 19]

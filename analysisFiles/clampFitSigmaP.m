@@ -257,28 +257,80 @@ for ii = 1:numSubj
     x = -20:20;
     y1 = r_p*x;
 
-    figure(20)
-    subplot(4,5,ii); hold on
-    scatter(reach,report)
-    plot(x,y1)
-    ylim([-20 20])
-    xlim([-20 20])
+    if ii == 2
+        figure(1)
+        subplot(2,3,2); hold on
+        scatter(reach,report,75,'filled','MarkerFaceAlpha',.5)
+        plot(x,y1,'LineWidth',2)
+        ylim([-20 20])
+        xlim([-20 20])        
+        xlabel('end point error, deg')
+        ylabel('report direction, deg')
+        grid on
+        box off
+        set(gca,'TickDir','out','FontSize',18)
+        title(['Participant ', num2str(ii)])
+
+    elseif ii == 3
+        figure(1)
+        subplot(2,3,3); hold on
+        scatter(reach,report,75,'filled','MarkerFaceAlpha',.5)
+        plot(x,y1,'LineWidth',2)
+        ylim([-20 20])
+        xlim([-20 20])        
+        xlabel('end point error, deg')
+        ylabel('report direction, deg')
+        grid on
+        box off
+        set(gca,'TickDir','out','FontSize',18)
+        title(['Participant ', num2str(ii)])
+
+    elseif ii == 16
+        figure(1)
+        subplot(2,3,5); hold on
+        scatter(reach,report,75,'filled','MarkerFaceAlpha',.5)
+        plot(x,y1,'LineWidth',2)
+        ylim([-20 20])
+        xlim([-20 20])
+        xlabel('end point error, deg')
+        ylabel('report direction, deg')
+        grid on
+        box off
+        set(gca,'TickDir','out','FontSize',18)
+        title(['Participant ', num2str(ii)])
+
+    elseif ii == 19
+        figure(1)
+        subplot(2,3,6); hold on
+        scatter(reach,report,75,'filled','MarkerFaceAlpha',.5)
+        plot(x,y1,'LineWidth',2)
+        ylim([-20 20])
+        xlim([-20 20])
+        xlabel('end point error, deg')
+        ylabel('report direction, deg')
+        grid on
+        box off
+        set(gca,'TickDir','out','FontSize',18)
+        title(['Participant ', num2str(ii)])
+        legend('data','model parameter ratio')
+    end
 end
 
 
-    %%
-figure; hold on
+%%
+figure(1)
+subplot(2,3, [1 4]); hold on
 %plot(0:20,0:20,'k--')
 scatter(sigMmarg1,sigPmarg1,100,'filled')
 text(sigMmarg1,sigPmarg1,[{' 1'},{' 2'},{' 3'},{' 4'},{' 5'},{' 6'},{' 7'},{' 8'},{' 9'},{' 10'},{' 11'},{' 12'},{' 13'},{' 14'},{' 15'},{' 16'},{' 17'},{' 18'},{' 19'},{' 20'}],'FontSize',18)
-xlim([0 12])
-ylim([0 20])
-xlabel('Motor Error, deg')
-ylabel('Proprioceptive Error, deg')
+xlim([0 8])
+ylim([0 18])
+xlabel('motor error, deg')
+ylabel('proprioceptive error, deg')
 grid on
 box off
 set(gca,'TickDir','out','FontSize',18)
-set(gcf,'Color','white','position',[0,0,500,800])
+set(gcf,'Color','white','position',[0,0,1400,800])
 
 %%
 % figure

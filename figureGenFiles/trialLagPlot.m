@@ -7,8 +7,8 @@ sigConfSM = logical(zeros(1,20));
 sigConfMA = logical(zeros(1,20));
 sigReportMA = logical(zeros(1,20));
 
-reachColor = hex2rgb('#CA49E0'); %pink
-confColor = hex2rgb('#3DE0AE'); %teal
+reachColor = hex2rgb('#3DE0AE'); %teal
+confColor = hex2rgb('#CA49E0'); %pink
 reportColor = hex2rgb('#E0B643'); %sand
 
 for ii = 1:numSubj
@@ -77,6 +77,8 @@ legend('Reach','Confidence')
 ylim([0 22])
 xlim([0 20])
 xticks([0 5 10 15 20])
+set(gca,'TickDir','out','FontSize',18)
+set(gcf,'Color','white','position',[0,0,1000,800])
 
 
 figure(2)
@@ -104,3 +106,5 @@ legend('Reach','Confidence','Report')
 ylim([0 22])
 xlim([0 20])
 xticks([0 5 10 15 20])
+set(gca,'TickDir','out','FontSize',18)
+set(gcf,'Color','white','position',[0,0,1000,800])

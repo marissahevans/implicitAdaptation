@@ -5,8 +5,8 @@ numSubj = length(subjAll);
 count1 = 1;
 count2 = 1;
 
-reachColor = hex2rgb('#CA49E0'); %pink
-confColor = hex2rgb('#3DE0AE'); %teal
+reachColor = hex2rgb('#3DE0AE'); %teal
+confColor = hex2rgb('#CA49E0'); %pink
 reportColor = hex2rgb('#E0B643'); %sand
 
 for ii = [2 3 16 19]%1:numSubj
@@ -25,14 +25,15 @@ for ii = [2 3 16 19]%1:numSubj
             subplot(4,1,count1)
             hold on;
             yyaxis left
-            plot(trial,errClamp,'k','LineWidth',2)
+            plot(trial,errClamp,'k','LineWidth',1)
             plot(trial,endPt,'-','Color',reachColor,'LineWidth',2)
-            ylabel('direction')
+            ylabel('direction, deg')
             ylim([-15 15])
 
             yyaxis right
             plot(trial,confRep,'Color',confColor,'LineWidth',2)
             ylim([mConf1-20 mConf1+20])
+            ylabel('confidence width, deg')
             yticks([0 5 10 15 20])
 
             if count1 == 4
@@ -45,7 +46,7 @@ for ii = [2 3 16 19]%1:numSubj
             ax = gca;
             ax.YAxis(1).Color = 'k';
             ax.YAxis(2).Color = confColor;
-            set(gcf,'Color','white','position',[0,0,1200,1000])
+            set(gcf,'Color','white','position',[0,0,1200,1200])
 
             count1 = count1 + 1;
 
@@ -59,15 +60,16 @@ for ii = [2 3 16 19]%1:numSubj
             subplot(4,1,count2)
             hold on;
             yyaxis left
-            plot(trial,errClamp,'k','LineWidth',2)
+            plot(trial,errClamp,'k','LineWidth',1)
             plot(trial,endPt,'-','Color',reachColor,'LineWidth',2)
             plot(trial,report,'-','Color',reportColor,'LineWidth',2)
-            ylabel('direction')
+            ylabel('direction, deg')
             ylim([-15 15])
 
             yyaxis right
             plot(trial,confRep,'Color',confColor,'LineWidth',2)
             ylim([mConf1-20 mConf1+20])
+            ylabel('confidence width, deg')
             yticks([0 5 10 15 20])
 
             if count2 == 4
@@ -80,7 +82,7 @@ for ii = [2 3 16 19]%1:numSubj
             ax = gca;
             ax.YAxis(1).Color = 'k';
             ax.YAxis(2).Color = confColor;
-            set(gcf,'Color','white','position',[0,0,1200,1000])
+            set(gcf,'Color','white','position',[0,0,1200,1200])
 
             count2 = count2 + 1;
 
