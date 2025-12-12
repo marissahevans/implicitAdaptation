@@ -73,10 +73,10 @@ end
 
 xlabel('trial lag')
 ylabel('sine wave amplitude')
-legend('Reach','Confidence')
+legend('Reach','Confidence','Location','northwest')
 ylim([0 22])
-xlim([0 20])
-xticks([0 5 10 15 20])
+xlim([-5 15])
+xticks([-5 0 5 10 15])
 set(gca,'TickDir','out','FontSize',18)
 set(gcf,'Color','white','position',[0,0,1000,800])
 
@@ -102,9 +102,9 @@ end
 
 xlabel('trial lag')
 ylabel('sine wave amplitude')
-legend('Reach','Confidence','Report')
+legend('Reach','Confidence','Report','Location','northwest')
 ylim([0 22])
-xlim([0 20])
-xticks([0 5 10 15 20])
+xlim([-5 15])
+xticks([-5 0 5 10 15])
 set(gca,'TickDir','out','FontSize',18)
 set(gcf,'Color','white','position',[0,0,1000,800])

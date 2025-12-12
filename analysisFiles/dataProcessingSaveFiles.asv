@@ -5,7 +5,7 @@ numSubj = length(subjAll);
 %Sensorimotor Task
 for ii = 1:numSubj
     subj = subjAll{ii};
-    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/data/%s',subj);
+    path = sprintf('/Users/mhe229/Documents/Landy Lab/Errorclamp Experiment/publicGitHubRepo/implicitAdaptation/data/%s',subj);
     
     if subj == 'OY'
         load('OY_errClamp_exp_S2_2025-03-04_16-00_errresults.mat')
@@ -79,13 +79,13 @@ for ii = 1:numSubj
     if thetaReach > 0 
         thetaReach = thetaReach-360;
     end
-    lagReach = thetaReach/18;
+    lagReach = (-thetaReach-90)/18;
 
     thetaConf = rad2deg(angle(fourierConf(25)));
     if thetaConf > 0
         thetaConf = thetaConf - 360;
     end
-    lagConf = thetaConf/18;
+    lagConf = (-thetaConf+)/18;
 
     phase = [thetaReach,thetaConf];
     amp = [(rms(endPt)/.707),(rms(confRepCent)/.707)];
@@ -95,7 +95,8 @@ for ii = 1:numSubj
         'confTime',...
         'pointsEarned','pointsTest',...
         'fourierClamp','fourierReach','fourierConf',...
-        'thetaClamp','thetaReach','thetaConf','phase','amp','arcStart');
+        'thetaClamp','thetaReach','thetaConf','phase','amp','arcStart', ...
+        'lagReach','lagConf');
 
     %Motor Awareness
 
@@ -424,19 +425,22 @@ for ii = 1:numSubj
     if thetaReach > 0 
         thetaReach = thetaReach-360;
     end
-    lagReach = thetaReach/18;
+    lagReach = (-thetaReach-90)/18;
     
     thetaReport = rad2deg(angle(fourierReport(13)));
     if thetaReport > 0 
         thetaReport = thetaReport-360;
     end
-    lagReport = thetaReport/18;
+    lagReport = (-thetaReport-90)/18;
+    if lagReport<0
+        lagReport = lagReport+20;
+    end
     
     thetaConf = rad2deg(angle(fourierConf(25)));
     if thetaConf > 0
         thetaConf = thetaConf - 360;
     end
-    lagConf = thetaConf/18;
+    lagConf = (-thetaConf)/18;
 
     phase = [thetaReach,thetaReport,thetaConf];
     phase(phase<0) = 360+phase(phase<0);

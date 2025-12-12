@@ -85,7 +85,7 @@ for ii = 1:numSubj
     if thetaConf > 0
         thetaConf = thetaConf - 360;
     end
-    lagConf = (-thetaConf-90)/18;
+    lagConf = (-thetaConf-180)/18;
 
     phase = [thetaReach,thetaConf];
     amp = [(rms(endPt)/.707),(rms(confRepCent)/.707)];
@@ -432,15 +432,12 @@ for ii = 1:numSubj
         thetaReport = thetaReport-360;
     end
     lagReport = (-thetaReport-90)/18;
-    if lagReport<0
-        lagReport = lagReport+20;
-    end
     
     thetaConf = rad2deg(angle(fourierConf(25)));
     if thetaConf > 0
         thetaConf = thetaConf - 360;
     end
-    lagConf = (-thetaConf-90)/18;
+    lagConf = (-thetaConf-180)/18;
 
     phase = [thetaReach,thetaReport,thetaConf];
     phase(phase<0) = 360+phase(phase<0);

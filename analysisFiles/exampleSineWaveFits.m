@@ -1,0 +1,152 @@
+%Plots of the raw time course data
+
+reachColor = hex2rgb('#3DE0AE'); %teal
+confColor = hex2rgb('#CA49E0'); %pink
+reportColor = hex2rgb('#E0B643'); %sand
+
+errorClamp = -90;
+thetaReach = -310;
+thetaReport = -210;
+thetaConf = 180;
+
+confAmp = 5;
+confMean = 6;
+reachAmp = 7;
+reportAmp = 5;
+
+
+t = linspace(0,1,21);
+x = 1:21;
+
+y1 = 10*cos(2*pi*1*t + deg2rad(errorClamp));
+y2 = reachAmp*cos(2*pi*1*t + deg2rad(thetaReach));
+y3 = confAmp*cos(2*pi*2*t + deg2rad(thetaConf))+confMean;
+
+y3A = confAmp*cos(2*pi*2*t + deg2rad(thetaConf+35))+confMean;
+y3B = confAmp*cos(2*pi*2*t + deg2rad(thetaConf-35))+confMean;
+
+%Reach only
+figure(5)
+subplot(1,2,1)
+hold on;
+yyaxis left
+plot(x,y1,'k','LineWidth',2)
+plot(x,y2,'-','Color',reachColor,'LineWidth',4)
+yline(0,'-','Color',reachColor,'LineWidth',4)
+ylabel('direction, deg')
+ylim([-20 20])
+yline(0,'HandleVisibility','off');
+
+xline(11,'--');
+xlabel('trial')
+xlim([1 20])
+xticks([1 11 20])
+legend('Errorclamp', 'Reach')
+title([])
+box off
+set(gca,'TickDir','out','FontSize',18)
+ax = gca;
+ax.YAxis(1).Color = 'k';
+ax.YAxis(2).Color = confColor;
+
+
+%Reach and SM confidence 
+figure(5)
+subplot(1,2,2)
+hold on;
+yyaxis left
+plot(x,y1,'k','LineWidth',2)
+plot(x,y2,'-','Color',reachColor,'LineWidth',2)
+ylabel('direction, deg')
+ylim([-20 20])
+yline(0,'HandleVisibility','off');
+
+yyaxis right
+plot(x,y3,'-','Color',confColor,'LineWidth',4)
+plot(x,y3A,'--','Color',confColor,'LineWidth',4)
+plot(x,y3B,'--','Color',confColor,'LineWidth',4)
+ylabel('confidence width, deg')
+ylim([confMean-20 confMean+20])
+yticks([0 5 10 15 20])
+
+xline(11,'--');
+xlabel('trial')
+xlim([1 20])
+xticks([1 11 20])
+legend('Errorclamp', 'Reach', 'Confidence')
+title([])
+box off
+set(gca,'TickDir','out','FontSize',18)
+ax = gca;
+ax.YAxis(1).Color = 'k';
+ax.YAxis(2).Color = confColor;
+set(gcf,'Color','white','position',[0,0,1200,800])
+
+%%
+%MOTOR AWARENESS
+
+y3 = reportAmp*cos(2*pi*1*t + deg2rad(thetaReport));
+y3A = reportAmp*cos(2*pi*1*t + deg2rad(thetaReport-60));
+y3B = reportAmp*cos(2*pi*1*t + deg2rad(thetaReport+90));
+
+y4 = 2*cos(2*pi*2*t + deg2rad(thetaConf))+confMean;
+
+%Reach and report
+figure(6)
+subplot(1,2,1)
+hold on;
+yyaxis left
+plot(x,y1,'k','LineWidth',2)
+plot(x,y2,'-','Color',reachColor,'LineWidth',2)
+plot(x,y3,'-','Color',reportColor,'LineWidth',4)
+plot(x,y3A,'--','Color',reportColor,'LineWidth',4)
+plot(x,y3B,'--','Color',reportColor,'LineWidth',4)
+yline(0,'--','Color',reportColor,'LineWidth',4)
+ylabel('direction, deg')
+ylim([-20 20])
+yline(0,'HandleVisibility','off');
+
+xline(11,'--');
+xlabel('trial')
+xlim([1 20])
+xticks([1 11 20])
+legend('Errorclamp', 'Reach', 'Report')
+title([])
+box off
+set(gca,'TickDir','out','FontSize',18)
+ax = gca;
+ax.YAxis(1).Color = 'k';
+ax.YAxis(2).Color = confColor;
+
+%Reach, Report and Confidence
+figure(6)
+subplot(1,2,2)
+hold on;
+yyaxis left
+plot(x,y1,'k','LineWidth',2)
+plot(x,y2,'-','Color',reachColor,'LineWidth',2)
+plot(x,y3,'-','Color',reportColor,'LineWidth',2)
+ylabel('direction, deg')
+ylim([-20 20])
+yline(0,'HandleVisibility','off');
+
+yyaxis right
+plot(x,y4,'-','Color',confColor,'LineWidth',4)
+yline(confMean,'-','Color',confColor,'LineWidth',4)
+ylabel('confidence width, deg')
+ylim([confMean-20 confMean+20])
+yticks([0 5 10 15 20])
+
+xline(11,'--');
+xlabel('trial')
+xlim([1 20])
+xticks([1 11 20])
+legend('Errorclamp', 'Reach', 'Report','Confidence')
+title([])
+box off
+set(gca,'TickDir','out','FontSize',18)
+ax = gca;
+ax.YAxis(1).Color = 'k';
+ax.YAxis(2).Color = confColor;
+set(gcf,'Color','white','position',[0,0,1200,800])
+
