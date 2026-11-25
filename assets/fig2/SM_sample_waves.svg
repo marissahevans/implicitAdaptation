@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 812.7 550">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 15.7px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        font-family: Helvetica, Helvetica;
+      }
+
+      .cls-1, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        isolation: isolate;
+      }
+
+      .cls-1, .cls-5, .cls-6 {
+        fill: #212121;
+      }
+
+      .cls-2 {
+        font-size: 18px;
+      }
+
+      .cls-3 {
+        font-size: 36px;
+      }
+
+      .cls-10 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22 {
+        fill: none;
+      }
+
+      .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22 {
+        stroke-linejoin: round;
+      }
+
+      .cls-11, .cls-12, .cls-13, .cls-17, .cls-19, .cls-21 {
+        stroke-width: .5px;
+      }
+
+      .cls-11, .cls-18 {
+        stroke: #ca49e0;
+      }
+
+      .cls-11, .cls-19, .cls-21 {
+        stroke-linecap: square;
+      }
+
+      .cls-4, .cls-6, .cls-8 {
+        font-size: 18px;
+      }
+
+      .cls-4, .cls-9 {
+        fill: #ca49e0;
+      }
+
+      .cls-12, .cls-13, .cls-14 {
+        stroke-opacity: .7;
+      }
+
+      .cls-12, .cls-13, .cls-17, .cls-21 {
+        stroke: #212121;
+      }
+
+      .cls-13 {
+        stroke-dasharray: 7.5 4.5;
+      }
+
+      .cls-5 {
+        font-size: 19.5px;
+      }
+
+      .cls-14, .cls-16, .cls-18 {
+        stroke-width: 4px;
+      }
+
+      .cls-14, .cls-16, .cls-22 {
+        stroke: #3de0ae;
+      }
+
+      .cls-7, .cls-9 {
+        font-size: 19.5px;
+      }
+
+      .cls-15 {
+        stroke: #ab30c4;
+        stroke-dasharray: 2 7;
+        stroke-linecap: round;
+        stroke-width: 3px;
+      }
+
+      .cls-17 {
+        stroke-miterlimit: 1.5;
+      }
+
+      .cls-19, .cls-20 {
+        stroke: #000;
+      }
+
+      .cls-20, .cls-22 {
+        stroke-width: 2px;
+      }
+
+      .cls-23 {
+        fill: #202020;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.10, SVG Export Plug-In . SVG Version: 1.2.0 Build 236)  -->
+  <g>
+    <g id="Layer_1">
+      <g>
+        <path class="cls-10" d="M16.2-.7h796.5v551H16.2V-.7" vector-effect="none"/>
+        <path class="cls-10" d="M77.7,9.7v491h282V9.7H77.7" vector-effect="none"/>
+        <text class="cls-5" transform="translate(404.9 548.3)"><tspan x="0" y="0">trial</tspan></text>
+        <g>
+          <line class="cls-21" x1="77.7" y1="500.8" x2="359.7" y2="500.8" vector-effect="none"/>
+          <line class="cls-21" x1="77.7" y1="505.7" x2="77.7" y2="500.8" vector-effect="none"/>
+          <line class="cls-21" x1="226.2" y1="505.7" x2="226.2" y2="500.8" vector-effect="none"/>
+          <line class="cls-21" x1="359.7" y1="505.7" x2="359.7" y2="500.8" vector-effect="none"/>
+        </g>
+        <text class="cls-6" transform="translate(72.9 525.1)"><tspan x="0" y="0">1</tspan></text>
+        <text class="cls-6" transform="translate(216.8 525.1)"><tspan x="0" y="0">11</tspan></text>
+        <text class="cls-6" transform="translate(349.6 525.1)"><tspan x="0" y="0">20</tspan></text>
+        <text class="cls-7" transform="translate(33.5 313.7) rotate(-90)"><tspan x="0" y="0">direction, deg</tspan></text>
+        <g>
+          <line class="cls-19" x1="77.7" y1="500.8" x2="77.7" y2="9.7" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="500.8" x2="77.7" y2="500.8" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="439.4" x2="77.7" y2="439.4" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="378" x2="77.7" y2="378" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="316.6" x2="77.7" y2="316.6" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="255.3" x2="77.7" y2="255.3" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="193.9" x2="77.7" y2="193.9" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="132.5" x2="77.7" y2="132.5" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="71.1" x2="77.7" y2="71.1" vector-effect="none"/>
+          <line class="cls-19" x1="72.8" y1="9.7" x2="77.7" y2="9.7" vector-effect="none"/>
+        </g>
+        <text class="cls-8" transform="translate(41 505.6)"><tspan x="0" y="0">-20</tspan></text>
+        <text class="cls-8" transform="translate(41 444.2)"><tspan x="0" y="0">-15</tspan></text>
+        <text class="cls-8" transform="translate(41 382.9)"><tspan x="0" y="0">-10</tspan></text>
+        <text class="cls-8" transform="translate(51.5 321.5)"><tspan x="0" y="0">-5</tspan></text>
+        <text class="cls-8" transform="translate(57.5 260.1)"><tspan x="0" y="0">0</tspan></text>
+        <text class="cls-8" transform="translate(57.5 198.7)"><tspan x="0" y="0">5</tspan></text>
+        <text class="cls-8" transform="translate(47 137.3)"><tspan x="0" y="0">10</tspan></text>
+        <text class="cls-8" transform="translate(47 76)"><tspan x="0" y="0">15</tspan></text>
+        <text class="cls-8" transform="translate(47 14.6)"><tspan x="0" y="0">20</tspan></text>
+        <polyline class="cls-20" points="77.7 255.3 92.6 217.3 107.4 183.1 122.3 155.9 137.1 138.5 152 132.5 166.8 138.5 181.6 155.9 196.5 183.1 211.3 217.3 226.2 255.3 241 293.2 255.8 327.4 270.7 354.6 285.5 372 300.4 378 315.2 372 330.1 354.6 344.9 327.4 359.7 293.2" vector-effect="none"/>
+        <polyline class="cls-16" points="77.7 200 92.6 223.1 107.4 249.3 122.3 276 137.1 300.8 152 321.1 166.8 334.9 181.6 341 196.5 338.6 211.3 328.1 226.2 310.5 241 287.4 255.8 261.2 270.7 234.5 285.5 209.7 300.4 189.4 315.2 175.6 330.1 169.5 344.9 171.9 359.7 182.4" vector-effect="none"/>
+        <line class="cls-14" x1="77.7" y1="255.3" x2="359.7" y2="255.3" vector-effect="none"/>
+        <line class="cls-12" x1="77.7" y1="255.3" x2="359.7" y2="255.3" vector-effect="none"/>
+        <line class="cls-13" x1="226.2" y1="500.8" x2="226.2" y2="9.7" vector-effect="none"/>
+        <path class="cls-10" d="M233.7,18v40.5h117.7V18h-117.7" vector-effect="none"/>
+        <line class="cls-20" x1="236.7" y1="28.8" x2="266.7" y2="28.8" vector-effect="none"/>
+        <line class="cls-16" x1="236.7" y1="47.7" x2="266.7" y2="47.7" vector-effect="none"/>
+        <text class="cls-1" transform="translate(269 33)"><tspan x="0" y="0">Error clamp</tspan></text>
+        <text class="cls-1" transform="translate(269 51.9)"><tspan x="0" y="0">Reach</tspan></text>
+        <path class="cls-17" d="M233.7,58.5V18h117.7v40.5h-117.7" vector-effect="none"/>
+        <path class="cls-10" d="M475.2,9.7v491h282.7V9.7h-282.7" vector-effect="none"/>
+        <g>
+          <line class="cls-21" x1="475.2" y1="500.8" x2="758" y2="500.8" vector-effect="none"/>
+          <line class="cls-21" x1="475.2" y1="505.7" x2="475.2" y2="500.8" vector-effect="none"/>
+          <line class="cls-21" x1="624" y1="505.7" x2="624" y2="500.8" vector-effect="none"/>
+          <line class="cls-21" x1="758" y1="505.7" x2="758" y2="500.8" vector-effect="none"/>
+        </g>
+        <text class="cls-6" transform="translate(470.4 525.1)"><tspan x="0" y="0">1</tspan></text>
+        <text class="cls-6" transform="translate(614.7 525.1)"><tspan x="0" y="0">11</tspan></text>
+        <text class="cls-6" transform="translate(747.8 525.1)"><tspan x="0" y="0">20</tspan></text>
+        <g>
+          <line class="cls-19" x1="475.2" y1="500.8" x2="475.2" y2="9.7" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="500.8" x2="475.2" y2="500.8" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="439.4" x2="475.2" y2="439.4" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="378" x2="475.2" y2="378" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="316.6" x2="475.2" y2="316.6" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="255.3" x2="475.2" y2="255.3" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="193.9" x2="475.2" y2="193.9" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="132.5" x2="475.2" y2="132.5" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="71.1" x2="475.2" y2="71.1" vector-effect="none"/>
+          <line class="cls-19" x1="470.3" y1="9.7" x2="475.2" y2="9.7" vector-effect="none"/>
+        </g>
+        <text class="cls-8" transform="translate(438.5 505.6)"><tspan x="0" y="0">-20</tspan></text>
+        <text class="cls-8" transform="translate(438.5 444.2)"><tspan x="0" y="0">-15</tspan></text>
+        <text class="cls-8" transform="translate(438.5 382.9)"><tspan x="0" y="0">-10</tspan></text>
+        <text class="cls-8" transform="translate(449 321.5)"><tspan x="0" y="0">-5</tspan></text>
+        <text class="cls-8" transform="translate(455 260.1)"><tspan x="0" y="0">0</tspan></text>
+        <text class="cls-8" transform="translate(455 198.7)"><tspan x="0" y="0">5</tspan></text>
+        <text class="cls-8" transform="translate(444.5 137.3)"><tspan x="0" y="0">10</tspan></text>
+        <text class="cls-8" transform="translate(444.5 76)"><tspan x="0" y="0">15</tspan></text>
+        <text class="cls-8" transform="translate(444.5 14.6)"><tspan x="0" y="0">20</tspan></text>
+        <text class="cls-9" transform="translate(806.7 349.3) rotate(-90)"><tspan x="0" y="0">confidence width, deg</tspan></text>
+        <g>
+          <line class="cls-11" x1="758" y1="500.8" x2="758" y2="9.7" vector-effect="none"/>
+          <line class="cls-11" x1="762.9" y1="328.9" x2="758" y2="328.9" vector-effect="none"/>
+          <line class="cls-11" x1="762.9" y1="267.5" x2="758" y2="267.5" vector-effect="none"/>
+          <line class="cls-11" x1="762.9" y1="206.2" x2="758" y2="206.2" vector-effect="none"/>
+          <line class="cls-11" x1="762.9" y1="144.8" x2="758" y2="144.8" vector-effect="none"/>
+        </g>
+        <text class="cls-4" transform="translate(768.5 333.8)"><tspan x="0" y="0">0</tspan></text>
+        <text class="cls-4" transform="translate(768.5 272.4)"><tspan x="0" y="0">5</tspan></text>
+        <text class="cls-4" transform="translate(768.5 211)"><tspan x="0" y="0">10</tspan></text>
+        <text class="cls-4" transform="translate(768.5 149.6)"><tspan x="0" y="0">15</tspan></text>
+        <polyline class="cls-20" points="475.2 255.3 490.1 217.3 505 183.1 519.9 155.9 534.8 138.5 549.6 132.5 564.5 138.5 579.4 155.9 594.3 183.1 609.2 217.3 624 255.3 638.9 293.2 653.8 327.4 668.7 354.6 683.6 372 698.4 378 713.3 372 728.2 354.6 743.1 327.4 758 293.2" vector-effect="none"/>
+        <polyline class="cls-22" points="475.2 200 490.1 223.1 505 249.3 519.9 276 534.8 300.8 549.6 321.1 564.5 334.9 579.4 341 594.3 338.6 609.2 328.1 624 310.5 638.9 287.4 653.8 261.2 668.7 234.5 683.6 209.7 698.4 189.4 713.3 175.6 728.2 169.5 743.1 171.9 758 182.4" vector-effect="none"/>
+        <polyline class="cls-18" points="475.2 316.6 490.1 304.9 505 274.2 519.9 236.3 534.8 205.6 549.6 193.9 564.5 205.6 579.4 236.3 594.3 274.2 609.2 304.9 624 316.6 638.9 304.9 653.8 274.2 668.7 236.3 683.6 205.6 698.4 193.9 713.3 205.6 728.2 236.3 743.1 274.2 758 304.9" vector-effect="none"/>
+        <polyline class="cls-15" points="490.1 316.6 505 304.3 519.9 273.2 534.8 235.3 549.6 205 564.5 193.9 579.4 206.2 594.3 237.3 609.2 275.2 624 305.5 638.9 316.6 653.8 304.3 668.7 273.2 683.6 235.3 698.4 205 713.3 193.9 728.2 206.2 743.1 237.3 758 275.2" vector-effect="none"/>
+        <line class="cls-12" x1="475.2" y1="255.3" x2="758" y2="255.3" vector-effect="none"/>
+        <line class="cls-13" x1="624" y1="500.8" x2="624" y2="9.7" vector-effect="none"/>
+        <path class="cls-10" d="M629,18v60h120.7V18h-120.7" vector-effect="none"/>
+        <line class="cls-20" x1="632" y1="28.9" x2="662" y2="28.9" vector-effect="none"/>
+        <line class="cls-22" x1="632" y1="48" x2="662" y2="48" vector-effect="none"/>
+        <line class="cls-18" x1="632" y1="67.1" x2="662" y2="67.1" vector-effect="none"/>
+        <text class="cls-1" transform="translate(664.2 33.1)"><tspan x="0" y="0">Error clamp</tspan></text>
+        <text class="cls-1" transform="translate(664.2 52.2)"><tspan x="0" y="0">Reach</tspan></text>
+        <text class="cls-1" transform="translate(664.2 71.3)"><tspan x="0" y="0">Confidence</tspan></text>
+        <path class="cls-17" d="M629,78V18h120.7v60h-120.7" vector-effect="none"/>
+        <polygon class="cls-23" points="539.6 131.3 539.6 178.3 546.2 175.5 536.4 198.6 526.6 175.5 533.2 178.3 533.2 131.3 539.6 131.3"/>
+        <polygon class="cls-23" points="646.6 184.1 646.6 231.1 653.2 228.3 643.4 251.4 633.6 228.3 640.2 231.1 640.2 184.1 646.6 184.1"/>
+        <polygon class="cls-23" points="636.9 387.1 636.9 340.2 630.3 343 640 319.8 649.8 343 643.2 340.2 643.2 387.1 636.9 387.1"/>
+        <text class="cls-2" transform="translate(481.7 40.9)"><tspan x="0" y="0">No lag, most</tspan><tspan x="0" y="21.6">confident when </tspan><tspan x="0" y="43.2">error clamp and </tspan><tspan x="0" y="64.8">motor plan align</tspan></text>
+        <text class="cls-2" transform="translate(624 411.4)"><tspan x="0" y="0">Trial lag, most</tspan><tspan x="0" y="21.6">confident when </tspan><tspan x="0" y="43.2">hand and error </tspan><tspan x="0" y="64.8">clamp align</tspan></text>
+      </g>
+      <text class="cls-2" transform="translate(86.3 251.4)"><tspan x="0" y="0">No adaptation</tspan></text>
+      <text class="cls-2" transform="translate(116.5 358.3)"><tspan x="0" y="0">Implictly adapted</tspan></text>
+      <polygon class="cls-23" points="228.6 244.4 233 244.4 238.3 244.4 235.5 237.8 258.7 247.5 235.5 257.3 238.3 250.7 233 250.7 228.6 250.7 228.6 244.4"/>
+      <polygon class="cls-23" points="187.4 260.4 187.4 316.5 194 313.7 184.2 336.8 174.5 313.7 181.1 316.5 181.1 260.4 187.4 260.4"/>
+      <text class="cls-2" transform="translate(190.3 275)"><tspan x="0" y="0">Anti-</tspan><tspan x="0" y="21.6">phase</tspan></text>
+      <text class="cls-2" transform="translate(218.5 206.2)"><tspan x="0" y="0">Motor-learning</tspan><tspan x="0" y="21.6">trial lag</tspan></text>
+      <line class="cls-18" x1="475.2" y1="255.3" x2="758" y2="255.3"/>
+      <text class="cls-2" transform="translate(632 144.4)"><tspan x="0" y="0">No significant</tspan><tspan x="0" y="21.6">modulation</tspan></text>
+      <text class="cls-3" transform="translate(4.8 39.6)"><tspan x="0" y="0">A</tspan></text>
+      <text class="cls-3" transform="translate(400.3 39.6)"><tspan x="0" y="0">B</tspan></text>
+    </g>
+  </g>
+</svg>
