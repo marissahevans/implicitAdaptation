@@ -1,0 +1,5 @@
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+pillow>=9.5
+# fig2.py also needs the rsvg-convert command-line tool (librsvg; e.g. `brew install librsvg` or `apt install librsvg2-bin`)
